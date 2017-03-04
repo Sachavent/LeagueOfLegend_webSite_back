@@ -9,8 +9,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-
+// Define the route
 app.use('/summoneraccount', require('./routes/summoneraccount'))
+app.use('/champions', require('./routes/champions'))
 
 
 app.listen( process.env.PORT || 3000, function () {
