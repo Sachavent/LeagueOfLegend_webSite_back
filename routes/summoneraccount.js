@@ -3,8 +3,6 @@ var router = express.Router();
 var urlencode = require('urlencode');
 const https = require('https');
 
-const RiotApiUrl = 'https://euw.api.pvp.net';
-
 /**
  * Getting basics info of the summoneraccount
  */
@@ -35,7 +33,7 @@ router.get('/:summonername/global', function (req, response) {
 
 router.get('/:compteid/rank', function (req, response) {
     var compteid = req.params.compteid;
-    let url = RiotApiUrl + `/api/lol/euw/v2.5/league/by-summoner/${compteid}/entry?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
+    let url = 'https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/${compteid}/entry?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7'
 
     var req = https.get(url, function (res) {
         //console.log('statusCode:', res.statusCode);
@@ -58,7 +56,7 @@ router.get('/:compteid/rank', function (req, response) {
  */
 router.get('/:compteid/mostchampionsplayed', function (req, response) {
     var compteid = req.params.compteid;
-    let url = RiotApiUrl + `/api/lol/euw/v1.3/stats/by-summoner/${compteid}/ranked?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
+    let url = 'https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/${compteid}/ranked?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7'
 
         var req = https.get(url, function (res) {
         //console.log('statusCode:', res.statusCode);
