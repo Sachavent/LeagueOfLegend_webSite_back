@@ -11,7 +11,7 @@ const RiotApiUrl = 'https://euw.api.pvp.net';
 router.get('/:summonername/global', function (req, response) {
     var summonername = req.params.summonername;
 
-    let url = RiotApiUrl + `/api/lol/euw/v1.4/summoner/by-name/` + urlencode(summonername) + `?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
+    let url = 'https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/' + urlencode(summonername) + '?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7'
 
     var req = https.get(url, function (res) {
         //console.log('statusCode:', res.statusCode);
