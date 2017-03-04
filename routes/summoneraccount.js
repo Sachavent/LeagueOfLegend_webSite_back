@@ -52,7 +52,6 @@ router.get('/:compteid/rank', function (req, response) {
     });
 
     req.end();
-    response.end("coucou")
 });
 
 /**
