@@ -15,7 +15,6 @@ router.get('/:summonername/global', function (req, response) {
         //console.log('statusCode:', res.statusCode);
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
-            response.setHeader('Content-Type', 'application/json');
             response.send(d)
         });
     });
@@ -42,7 +41,6 @@ router.get('/:compteid/rank', function (req, response) {
         //console.log('statusCode:', res.statusCode);
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
-            response.setHeader('Content-Type', 'application/json');
             response.send(d)
         });
     });
@@ -65,7 +63,6 @@ router.get('/:compteid/mostchampionsplayed', function (req, response) {
         //console.log('statusCode:', res.statusCode);
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
-            response.setHeader('Content-Type', 'application/json');
             response.send(d)
         });
     });
