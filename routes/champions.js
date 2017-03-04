@@ -12,7 +12,6 @@ router.get('/championName/:id', (req, response) => {
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
             response.statusCode = "200";
-            response.setHeader('Content-Type', 'application/json');
             response.write(d);
             response.end();
         });
