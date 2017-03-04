@@ -35,8 +35,8 @@ router.get('/:summonername/global', function (req, response) {
 
 router.get('/:compteid/rank', function (req, response) {
     var compteid = req.params.compteid;
-    let url =  RiotApiUrl + `/api/lol/euw/v2.5/league/by-summoner/${compteid}/entry?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
-    
+    let url = RiotApiUrl + `/api/lol/euw/v2.5/league/by-summoner/${compteid}/entry?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
+
     var req = https.get(url, function (res) {
         //console.log('statusCode:', res.statusCode);
         //console.log('headers:', res.headers);
@@ -53,5 +53,29 @@ router.get('/:compteid/rank', function (req, response) {
     req.end();
 });
 
+/**
+ * Get the list of the most played champion
+ */
+router.get('/:compteid/mostchampionsplayed', function (req, response) {
+    var compteid = req.params.compteid;
+    let url = RiotApiUrl + `/api/lol/euw/v1.3/stats/by-summoner/${compteid}/ranked?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
+
+        var req = https.get(url, function (res) {
+        //console.log('statusCode:', res.statusCode);
+        //console.log('headers:', res.headers);
+        res.on('data', (d) => {
+            response.setHeader('Content-Type', 'application/json');
+            response.send(d)
+        });
+    });
+
+    req.on('error', (e) => {
+        console.error(e);
+    });
+
+    req.end();
+
+
+});
 
 module.exports = router;
