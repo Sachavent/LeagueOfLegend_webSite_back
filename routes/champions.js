@@ -12,8 +12,9 @@ router.get('/championName/:id', (req, response) => {
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
             response.statusCode = "200";
-            response.write(d);
-            response.end();
+             response.write(d, (err) => {
+                response.end();
+            });
         });
     });
 
