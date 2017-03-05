@@ -66,11 +66,12 @@ router.get('/:compteid/mostchampionsplayed', function (req, response) {
     var compteid = req.params.compteid;
     let url = `https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/${compteid}/ranked?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
 
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+
     var req = https.get(url, function (res) {
         //console.log('statusCode:', res.statusCode);
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
-            response.writeHead(200, { 'Content-Type': 'application/json' });
             response.write(d);
             response.end();
         });
