@@ -3,7 +3,7 @@ var router = express.Router();
 var urlencode = require('urlencode');
 const https = require('https');
 
-/*router.get('/championName/:id', (req, response) => {
+router.get('/championName/:id', (req, response) => {
     let idchamp = req.params.id;
     let url = `https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/${idchamp}?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
 
@@ -23,6 +23,6 @@ const https = require('https');
     });
 
     req.end();
-})*/
+})
 
 module.exports = router;

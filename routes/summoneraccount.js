@@ -15,8 +15,6 @@ router.get('/:summonername/global', function (req, response) {
         //console.log('statusCode:', res.statusCode);
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
-            response.statusCode = "200";
-            response.setHeader('Content-Type', 'application/json');
             response.write(d, (err) => {
                 response.end();
             });
@@ -35,17 +33,13 @@ router.get('/:summonername/global', function (req, response) {
  */
 
 router.get('/:compteid/rank', function (req, response) {
-    console.log("ici: ");
     var compteid = req.params.compteid;
-    console.log("compteid: " + compteid);
     let url = `https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/${compteid}/entry?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
-    console.log("url: " + url);
 
     var req = https.get(url, function (res) {
         //console.log('statusCode:', res.statusCode);
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
-            response.statusCode = "200";
             response.write(d, (err) => {
                 response.end();
             });
@@ -62,18 +56,14 @@ router.get('/:compteid/rank', function (req, response) {
 /**
  * Get the list of the most played champion
  */
-router.get('/:compteid/mostchampionsplayed', function (req, response) {
+/*router.get('/:compteid/mostchampionsplayed', function (req, response) {
     var compteid = req.params.compteid;
     let url = `https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/${compteid}/ranked?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
-
-    response.writeHead(200, { 'Content-Type': 'application/json' });
-
     var req = https.get(url, function (res) {
-        //console.log('statusCode:', res.statusCode);
-        //console.log('headers:', res.headers);
+        console.log('statusCode:', res.statusCode);
+        console.log('headers:', res.headers);
         res.on('data', (d) => {
-            response.write(d);
-            response.end();
+           response.send(d)
         });
     });
 
@@ -84,6 +74,6 @@ router.get('/:compteid/mostchampionsplayed', function (req, response) {
     req.end();
 
 
-});
+});*/
 
 module.exports = router;
