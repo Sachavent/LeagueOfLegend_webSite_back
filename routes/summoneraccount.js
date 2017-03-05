@@ -71,9 +71,8 @@ router.get('/:compteid/mostchampionsplayed', function (req, response) {
         //console.log('headers:', res.headers);
         res.on('data', (d) => {
             response.statusCode = "200";
-           response.write(d, (err) => {
-                response.end();
-            });
+            response.setHeader('Content-Type', 'application/json');
+            response.send(d)
         });
     });
 
