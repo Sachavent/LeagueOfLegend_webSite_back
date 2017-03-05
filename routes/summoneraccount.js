@@ -34,7 +34,7 @@ router.get('/:summonername/global', function (req, response) {
  * Get summonerRank by compte id
  */
 
-/*router.get('/:compteid/rank', function (req, response) {
+router.get('/:compteid/rank', function (req, response) {
     console.log("ici: ");
     var compteid = req.params.compteid;
     console.log("compteid: " + compteid);
@@ -57,7 +57,7 @@ router.get('/:summonername/global', function (req, response) {
     });
 
     req.end();
-});*/
+});
 
 /**
  * Get the list of the most played champion
