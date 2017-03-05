@@ -34,7 +34,7 @@ router.get('/:summonername/global', function (req, response) {
  * Get summonerRank by compte id
  */
 
-router.get('/:compteid/rank', function (req, response) {
+/*router.get('/:compteid/rank', function (req, response) {
     console.log("ici: ");
     var compteid = req.params.compteid;
     console.log("compteid: " + compteid);
@@ -57,12 +57,12 @@ router.get('/:compteid/rank', function (req, response) {
     });
 
     req.end();
-});
+});*/
 
 /**
  * Get the list of the most played champion
  */
-router.get('/:compteid/mostchampionsplayed', function (req, response) {
+/*router.get('/:compteid/mostchampionsplayed', function (req, response) {
     var compteid = req.params.compteid;
     let url = `https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/${compteid}/ranked?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
 
@@ -84,6 +84,6 @@ router.get('/:compteid/mostchampionsplayed', function (req, response) {
     req.end();
 
 
-});
+});*/
 
 module.exports = router;
