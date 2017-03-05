@@ -60,12 +60,16 @@ router.get('/:compteid/mostchampionsplayed', function (req, response) {
     var compteid = req.params.compteid;
     let url = `https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/${compteid}/ranked?api_key=RGAPI-650e27b6-8c7d-490b-a47d-afabc202e5b7`
     var req = https.get(url, function (res) {
-        console.log('statusCode:', res.statusCode);
-        console.log('headers:', res.headers);
+        //console.log('statusCode:', res.statusCode);
+        //console.log('headers:', res.headers);
         res.on('data', (d) => {
-           response.write(d)
+            response.write(d)
         });
 
+        // It's important to use "res.once("end")"
+        // If you don't, the server can end before the server finished to write all data recieved
+        // with "res.once("end")" you're sure that the server connexionn won't end before all data got write
+        // "end" is call when the transaction between the server and the client is finished
         res.once("end", () => {
             response.end();
         })
